@@ -1,19 +1,22 @@
 # -*- coding: utf-8 -*
-import pymysql
+
+import os
 
 # 固定参数
 options = {
-    "port": 8886
+    "port": 8661
 }
-
+BASE_DIRS = os.path.dirname(__file__)
 # 配置
 settings = {
-    "debug": True,
-    "mysql": {
-            "host": "127.0.0.1",
-            'database': "root",
+    "debug": False,
+    'static_path': os.path.join(BASE_DIRS, "static"),
+    'template_path': os.path.join(BASE_DIRS, 'template'),
+}
+# 数据库配置
+mysql = {
+            "host": "localhost",
             "user": "root",
-            'password': "mysql"
-
-        }
+            'passwd': "root",
+            'dbName': 'test',
 }
